@@ -1,3 +1,5 @@
 def add(input):
-  return -1
+  if (input == Null or input[0] == '\0'):
+    return 0
+    
   
