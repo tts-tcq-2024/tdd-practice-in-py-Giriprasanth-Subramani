@@ -1,12 +1,15 @@
 import re
 
+def negative_error(value):
+    try:
+        if value.startswith('-'):                 
+            raise ValueError(f"Negatives not allowed: {value}")                 
+    except ValueError as e:
+       print(e)  
+
 def check_negatives(numbers):
      for value in numbers:
-         try:
-             if value.startswith('-'):                 
-                 raise ValueError(f"Negatives not allowed: {value}")                 
-         except ValueError as e:
-            print(e)
+         return negative_error(value)
           
         
 def generate_number_list(input):    
@@ -20,7 +23,8 @@ def generate_number_list(input):
     
 def add(input):
     
-    numbers = generate_number_list(input)   
+    numbers = generate_number_list(input)    
+
     number_list = []
     for number in numbers:
         if int(number) < 1000:
